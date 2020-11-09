@@ -1,9 +1,16 @@
 # 目的
 
-JS / TS 练习： 强制自己使用TS
+JS / TS 练习： 强制自己使用 TS 实现各类手写函数
 
-## 安转测试组件
+## 目录结构
 
-1. npm install --save-dev jest ts-jest @types/jest 
-2. 配置 ts-jest: `npx ts-jest config:init`
-3. 安装 babel: npm install --save-dev babel-jest @babel/core @babel/preset-env
+```bash
+__
+ |__src           # 存放各类源码实现
+ |__test          # 存放对应的测试用例
+```
+
+## 使用方法
+
+1. 安装对应的依赖：`yarn install`
+2. 运行测试: `yarn test`
