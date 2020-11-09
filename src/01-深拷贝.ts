@@ -4,6 +4,7 @@
 
 export const deepCp = (
   function () {
+    // 使用 Map 记录，避免循环引用
     let cp_rec = new Map();
     return function <T extends unknown>(root: T): T {
       // 首先判断对象类型: 直接返回基本类型
@@ -20,4 +21,4 @@ export const deepCp = (
       return obj;
     }
   }
-)()
+)();
