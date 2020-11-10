@@ -1,8 +1,4 @@
 declare interface Function {
-  myCall: (thisArg: IThisObj, ...argsArray: any[]) => any;
-  myApply: (thisArg: IThisObj, argsArray?: any[]) => any;
-}
-
-declare interface IThisObj extends Object {
-  fn?: Function
+  myCall: <T, A extends any[], R>(this: (this: T, ...args: A) => R, thisArg: T, ...args: A) => R;
+  myApply: <T, A extends any[], R>(this: (this: T, ...args: A) => R, thisArg: T, args?: A) => R;
 }
