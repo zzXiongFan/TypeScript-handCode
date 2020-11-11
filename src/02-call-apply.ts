@@ -4,15 +4,15 @@
 
 export const MixIn = function () {
   Function.prototype.myCall = function <T, A extends any[], R>(this: (this: T, ...args: A) => R, thisArg: T, ...args: A): R {
-    let temp = Object.assign(thisArg, { fn: this});
-    let res = temp.fn(...args);
-    delete (thisArg as any).fn;
+    let temp: T & {fn ?: typeof this} = Object.assign(thisArg, { fn: this});
+    let res = (temp.fn!)(...args);
+    delete temp.fn;
     return res;
   }
   Function.prototype.myApply = function <T, A extends any[], R>(this: (this: T, ...args: A) => R, thisArg: T, args?: A): R {
-    let temp = Object.assign(thisArg, { fn: this});
-    let res = temp.fn(...args as A);
-    delete (thisArg as any).fn;
+    let temp: T & {fn ?: typeof this} = Object.assign(thisArg, { fn: this});
+    let res = (temp.fn!)(...args as A);
+    delete temp.fn;
     return res;
   }
 }
